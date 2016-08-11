@@ -30,7 +30,7 @@ $ npm test
 ```
 Start Program: 
 ```sh
-$ node main.js
+$ node main/main.js
 ```
 
 #Testing

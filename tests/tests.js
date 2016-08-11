@@ -1,7 +1,7 @@
 var chai = require('chai');
 var assert = chai.assert;
-var helpers = require('../helpers.js');
-var main = require('../main.js');
+var helpers = require('../main/helpers.js');
+var main = require('../main/main.js');
 var nock = require('nock');
 var xboxes = [
   {name: "black xbox", itemId: 215}, 
@@ -137,29 +137,28 @@ describe('pingRecommendationApi', function() {
       done();
     }, "http://recommendations/157");
   });
-
-  describe('sortRecommendations', function() {
-    it ('should return error if an error was passed to it', function(done) {
-      var error = "product recommendation api is down";
-      var body = JSON.stringify(recommendedProducts);
-      var result = main.sortRecommendations(error, null, body);
-      assert.equal(result, "product recommendation api is down");
-      done();
-    });
-    it ('should return an error message ', function(done) {
-      var error = null
-      var result = JSON.stringify({"errors":[{"code":4022,"message":"No recommendations found for item 173927612"}]});
-      assert.equal(main.sortRecommendations(error, null, result), "No recommendations found for item 173927612");
-      done();
-    });
-    it ('should sort recommendations if they exist', function(done) {
-      var error = null;
-      var result = main.sortRecommendations(error, null, JSON.stringify(recommendedProducts));
-      assert.equal(result[0].name, 'rumble pack'); 
-      assert.equal(result[1].name, 'wireless controller');
-      assert.equal(result[2].name, 'battery pack');
-      done();
-    });
-  });
 });
 
+describe('sortRecommendations', function() {
+  it ('should return error if an error was passed to it', function(done) {
+    var error = "product recommendation api is down";
+    var body = JSON.stringify(recommendedProducts);
+    var result = main.sortRecommendations(error, null, body);
+    assert.equal(result, "product recommendation api is down");
+    done();
+  });
+  it ('should return an error message ', function(done) {
+    var error = null
+    var result = JSON.stringify({"errors":[{"code":4022,"message":"No recommendations found for item 173927612"}]});
+    assert.equal(main.sortRecommendations(error, null, result), "No recommendations found for item 173927612");
+    done();
+  });
+  it ('should sort recommendations if they exist', function(done) {
+    var error = null;
+    var result = main.sortRecommendations(error, null, JSON.stringify(recommendedProducts));
+    assert.equal(result[0].name, 'rumble pack'); 
+    assert.equal(result[1].name, 'wireless controller');
+    assert.equal(result[2].name, 'battery pack');
+    done();
+  });
+});

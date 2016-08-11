@@ -5,7 +5,7 @@
   "description": "a product reccomendation application",
   "license": "MIT",
   "scripts": {
-    "start": "npm install && npm test && node main.js",
+    "start": "npm install && npm test && node main/main.js",
     "test": "mocha tests/tests.js"
   },
   "dependencies": {
@@ -14,7 +14,6 @@
     "prompt": "^1.0.0"
   },
   "devDependencies": {
-    "jshint": "^2.9.2",
     "mocha": "^3.0.2",
     "nock": "^8.0.0"
   }
