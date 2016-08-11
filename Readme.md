@@ -24,10 +24,12 @@ install
  ```sh
 $ npm install
 ```
-Tests: ```
+Tests: 
+```sh
 $ npm test
 ```
-Start Program: ```
+Start Program: 
+```sh
 $ node main.js
 ```
 
