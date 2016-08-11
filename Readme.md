@@ -1,5 +1,5 @@
 #About
-  This is command line program to find recommended products. It can be thought of as a series of as a series of steps.
+  This is command line program to find recommended products. It can be thought of as a series of of steps.
   1. User is prompted for input.
   2. This input is used to ping the Walmart product api. This api returns an array of products.
   3. The id of the first product is used to ping the recommendations api. This api returns an array of product recommendations.
