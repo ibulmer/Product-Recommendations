@@ -23,13 +23,13 @@ Alternatively you can invoke any one of these 3 processes in isolation. From the
 install
  ```sh
 $ npm install
-'''
-Tests: '''
+```
+Tests: ```
 $ npm test
-'''
-Start Program: '''
+```
+Start Program: ```
 $ node main.js
-'''
+```
 
 #Testing
 The tests both test the helper functions as well as the functions that call the apis. The apis are mocked using Nock. Nock works by intercepting http requests and returning whatever you decide. To learn more go to https://github.com/node-nock/nock
