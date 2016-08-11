@@ -47,7 +47,7 @@ var sortRecommendations = function(err, res, body) {
     return body.errors[0].message;
   } 
   var firstTen=body.slice(0, 10).sortByKey('customerRating', 'dsc');
-  firstTen.each(function(item){
+  firstTen.forEach(function(item){
     console.log('name: '+item.name+' rating: ', item.customerRating);
   });
   return firstTen;
