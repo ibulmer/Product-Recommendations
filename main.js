@@ -23,11 +23,11 @@ var pingRecommendationApi = function(err, res, body, api, callback, url) {
     console.log(err);
     return err;
   }
-  var body = JSON.parse(body);
+  body = JSON.parse(body);
   if (body.message) {
     console.log(body.message);
     return body.message;
-  };
+  }
   var itemId = body.items[0].itemId;
   request({
     url: url||'http://api.walmartlabs.com/v1/nbp?apiKey='+apiKey+'&itemId='+itemId,
@@ -39,8 +39,8 @@ var sortRecommendations = function(err, res, body) {
   if (err) {
     console.log('error with the recommendation api');
     return err;
-  };
-  var body=JSON.parse(body);
+  }
+  body=JSON.parse(body);
   if (body.errors){
     console.log('no reccomendations');
     console.log(body.errors[0].message);
@@ -51,7 +51,7 @@ var sortRecommendations = function(err, res, body) {
     console.log('name: '+item.name+' rating: ', item.customerRating);
   });
   return firstTen;
-}
+};
 
 
 var getRecProducts= function(schema){
@@ -71,9 +71,9 @@ getRecProducts(schema);
 
 module.exports = {
   pingProductApi: pingProductApi,
-  pingRecommendationApi, pingRecommendationApi,
-  sortRecommendations, sortRecommendations,
-  getRecProducts, getRecProducts
+  pingRecommendationApi: pingRecommendationApi,
+  sortRecommendations: sortRecommendations,
+  getRecProducts: getRecProducts
 };
 
 
